@@ -17,7 +17,6 @@ module.exports = {
         'airbnb/hooks',
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
-        'next/core-web-vitals',
         'prettier',
     ],
     plugins: [
