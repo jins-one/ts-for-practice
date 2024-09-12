@@ -1,4 +1,4 @@
-import { getData, setData, transInsertQuery } from '@/getData';
+import { getData, setData, transInsertQuery } from '@/database/getData';
 
 interface UserMove {
     id: number;
