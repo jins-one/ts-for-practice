@@ -1,4 +1,4 @@
-import { getData, transInsertQuery } from '@/getData';
+import { getData, setData, transInsertQuery } from '@/getData';
 
 interface before {
     user_id: number;
@@ -50,5 +50,6 @@ export default async function user_notification() {
             tableName: 'push_notification_log',
         });
         console.log(que);
+        setData(que);
     });
 }

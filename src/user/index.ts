@@ -1,4 +1,4 @@
-import { getData, transInsertQuery } from '@/getData';
+import { getData, setData, transInsertQuery } from '@/getData';
 
 interface UserMove {
     id: number;
@@ -29,9 +29,7 @@ interface NUserMove {
     fcm_token: string;
 }
 export default async function userMove() {
-    const { data } = await getData<UserMove>(
-        'SELECT * from drpresso.user LIMIT 5;',
-    );
+    const { data } = await getData<UserMove>('SELECT * from drpresso.user;');
 
     data.forEach((item) => {
         const que = transInsertQuery<NUserMove>({
@@ -40,5 +38,6 @@ export default async function userMove() {
             tableName: 'user',
         });
         console.log(que);
+        setData(que);
     });
 }

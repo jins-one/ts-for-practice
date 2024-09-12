@@ -1,4 +1,4 @@
-import { getData, transInsertQuery } from '@/getData';
+import { getData, setData, transInsertQuery } from '@/getData';
 
 interface before {
     user_id: number;
@@ -22,7 +22,7 @@ interface after {
 }
 export default async function mind_test_history() {
     const { data } = await getData<before>(
-        'select * from drpresso.mind_test_history limit 5',
+        'select * from drpresso.mind_test_history;',
     );
     data.forEach((item, index) => {
         const que = transInsertQuery<after>({
@@ -40,5 +40,6 @@ export default async function mind_test_history() {
             tableName: 'mind_inspection_history',
         });
         console.log(que);
+        setData(que);
     });
 }

@@ -1,4 +1,7 @@
+import dotenv from 'dotenv';
 import { createConnection, FieldPacket, RowDataPacket } from 'mysql2/promise';
+
+dotenv.config();
 // 원본
 type QueryDataWrap<T> = T & RowDataPacket;
 const connection = createConnection({

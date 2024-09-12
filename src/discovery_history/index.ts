@@ -1,4 +1,4 @@
-import { getData, transInsertQuery } from '@/getData';
+import { getData, setData, transInsertQuery } from '@/getData';
 
 interface before {
     user_id: number;
@@ -16,7 +16,7 @@ interface after {
 }
 export default async function discovery_history() {
     const { data } = await getData<before>(
-        'select * from drpresso.discovery_history limit 5',
+        'select * from drpresso.discovery_history;',
     );
 
     data.forEach((item, index) => {
@@ -29,5 +29,6 @@ export default async function discovery_history() {
             tableName: 'discovery_history',
         });
         console.log(que);
+        setData(que);
     });
 }
