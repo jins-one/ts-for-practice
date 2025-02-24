@@ -1,24 +1,37 @@
-async function main() {
-    const testCase = 5 as number;
-    switch (testCase) {
-        case 1:
-            diaryMove();
-            break;
-        // case 2:
-        //     userMove();
-        //     break;
-        // case 3:
-        //     discovery_history();
-        //     break;
+import { gptPost } from './arb-rw/gptPost';
+import { arbRead } from './arb-rw/read';
+import { writeArb } from './arb-rw/write';
 
-        // case 4:
-        //     mind_test_history();
-        //     break;
-        case 5:
-            break;
-        default:
-            break;
-    }
+type arbReadReturn<T> = T extends (...args: any) => Promise<infer U>
+    ? U
+    : never;
+async function arbRW() {
+    const body: arbReadReturn<typeof arbRead> = {};
+    const arbContent = (await arbRead()) ?? {};
+    Object.entries(arbContent).forEach(([key, value]) => {
+        if (key[0] !== '@') {
+            body[key] = value;
+        }
+    });
+    const response = await gptPost(JSON.stringify(body));
+    const msg = response.choices[0].message;
+    const content = msg.content ?? '';
+    const objContent = JSON.parse(content);
+    console.log(body);
+    const engArbData = { ...arbContent, ...objContent };
+    const stringEngArbData = JSON.stringify(engArbData);
+    writeArb(stringEngArbData);
+}
+async function main() {
+    // const testCase = 1 as number;
+    // switch (testCase) {
+    //     case 1:
+    //         arbRW();
+    //         break;
+    //     default:
+    //         break;
+    // }
+    console.dir('aa');
 }
 
 main();

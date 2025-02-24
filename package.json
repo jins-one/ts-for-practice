@@ -12,6 +12,7 @@
         "dotenv": "^16.4.5",
         "fs": "^0.0.1-security",
         "mysql2": "^3.9.3",
+        "openai": "^4.60.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.3.3"
     },
