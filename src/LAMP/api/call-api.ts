@@ -1,6 +1,6 @@
-import { configs } from './configs';
-import LocalStorage from './LocalStorage';
-
+const configs = {
+    baseUrl: '',
+};
 interface ApiArgument {
     token?: string;
     body?: any;
@@ -96,7 +96,7 @@ class ReqApi extends ApiConfig {
     }
 
     getToken() {
-        return LocalStorage.getItem(configs.storageName) ?? undefined;
+        // return LocalStorage.getItem(configs.storageName) ?? undefined;
     }
 
     get<response = any>({ token }: Omit<ApiArgument, 'body'> = {}) {
