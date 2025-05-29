@@ -22,16 +22,9 @@ async function arbRW() {
     const stringEngArbData = JSON.stringify(engArbData);
     writeArb(stringEngArbData);
 }
+
 async function main() {
-    // const testCase = 1 as number;
-    // switch (testCase) {
-    //     case 1:
-    //         arbRW();
-    //         break;
-    //     default:
-    //         break;
-    // }
-    console.dir('aa');
+    console.log(11);
 }
 
 main();
