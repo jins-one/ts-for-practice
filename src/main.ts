@@ -1,4 +1,3 @@
-
 import { getData } from './db/mysql';
 import { PhenotypeEntity } from './db/phenotype';
 import { sensorEventSchemaModel } from './mongo/sensor-event-schema';
@@ -10,14 +9,18 @@ import dayjs from 'dayjs';
  *
  * platform => device state 넣거나 새로 만들거나.;
  * device_name => device state 넣거나 새로 만들거나.;
+ *
  * distance => distance;
  * walking_count => counts;
+ *
  * call_log=>null;
  * total_call_cnt => null;
  * total_call_time=>null;
+ *
  * app_use_log=> 상의 후에 추가 예정;
  * total_app_use_time=> 상의 후에 추가 예정;
  * total_app_use_count=> 상의 후에 추가 예정;
+ *
  *
  *
  */
@@ -57,4 +60,3 @@ async function main() {
 }
 
 main();
-
