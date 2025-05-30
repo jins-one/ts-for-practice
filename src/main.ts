@@ -1,3 +1,4 @@
+
 import { getData } from './db/mysql';
 import { PhenotypeEntity } from './db/phenotype';
 import { sensorEventSchemaModel } from './mongo/sensor-event-schema';
@@ -56,3 +57,4 @@ async function main() {
 }
 
 main();
+
