@@ -1,0 +1,10 @@
+{
+    "mind_report_item_month": "{month} month",
+    "@mind_report_item_month": {
+        "description": "이 메시지는 사용자가 앱에 처음 접속할 때 표시됩니다."
+    },
+    "mind_report_item_diary_count": "{diaryCount} days logged",
+    "@mind_report_item_diary_count": {
+        "description": "사용자가 로그인했을 때 보여주는 메시지입니다."
+    }
+}
